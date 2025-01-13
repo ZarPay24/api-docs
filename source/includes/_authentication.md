@@ -11,3 +11,6 @@ ZarPay24 expects for the API key to be included in all API requests to the serve
 You must replace <code>your_api_key_here</code> with your personal API key.
 </aside>
 
+<aside class="notice">
+To get <code>your_api_key_here</code>, contact <a href="https://www.goftino.com/c/YMgtJA">Zarpay Support</a> or send mail to <a href="mailto:tech@zarpay24.com">tech@zarpay24.com</a>.
+</aside>
