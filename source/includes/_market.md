@@ -1,5 +1,47 @@
 # Market
 
+
+## Check Market status
+
+
+```shell
+curl --location --request GET 'https://napi.zarpay24.com/api/v1/market/status/GOLD/' \
+--header 'Content-Type: application/json'
+```
+
+> The market status activeness could be true or false:
+
+```json
+{
+    "active": true
+}
+```
+
+> Inactive market
+
+```json
+{
+    "active": false
+}
+```
+
+
+This endpoint retrieves an activeness of specific coin.
+
+### HTTP Request
+
+`GET https://napi.zarpay24.com/api/v1/market/status/<symbol>/`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+symbol | The symbol of coin to check activeness.
+
+
+
+
 ## Get Coin Price
 
 
