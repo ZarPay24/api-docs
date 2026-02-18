@@ -330,6 +330,9 @@
             <a href="#market" class="toc-h1 toc-link" data-title="Market">Market</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#check-market-status" class="toc-h2 toc-link" data-title="Check Market status">Check Market status</a>
+                  </li>
+                  <li>
                     <a href="#get-coin-price" class="toc-h2 toc-link" data-title="Get Coin Price">Get Coin Price</a>
                   </li>
                   <li>
@@ -410,7 +413,39 @@ To get <code>your_api_key_here</code>, contact <a href="https://www.goftino.com/
 <p>This endpoint retrieves your balance of each coin.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://napi.zarpay24.com/api/v1/assets/fiat-balance/</code></p>
-<h1 id='market'>Market</h1><h2 id='get-coin-price'>Get Coin Price</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://napi.zarpay24.com/api/v1/market/coins/GOLD/'</span> <span class="se">\</span>
+<h1 id='market'>Market</h1><h2 id='check-market-status'>Check Market status</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://napi.zarpay24.com/api/v1/market/status/GOLD/'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>The market status activeness could be true or false:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Inactive market</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves an activeness of specific coin.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://napi.zarpay24.com/api/v1/market/status/&lt;symbol&gt;/</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>The symbol of coin to check activeness.</td>
+</tr>
+</tbody></table>
+<h2 id='get-coin-price'>Get Coin Price</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://napi.zarpay24.com/api/v1/market/coins/GOLD/'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: your_api_key_here'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -432,9 +467,9 @@ To get <code>your_api_key_here</code>, contact <a href="https://www.goftino.com/
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves detailed information about a specific coin.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://napi.zarpay24.com/api/v1/market/coins/&lt;symbol&gt;/</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -476,7 +511,7 @@ To get <code>your_api_key_here</code>, contact <a href="https://www.goftino.com/
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to purchase a coin by specifying the desired quantity.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://napi.zarpay24.com/api/v1/market/buy/</code></p>
 <h3 id='request-body'>Request Body</h3>
 <table><thead>
@@ -524,7 +559,7 @@ To get <code>your_api_key_here</code>, contact <a href="https://www.goftino.com/
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to sell a coin by specifying the desired quantity.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://napi.zarpay24.com/api/v1/market/sell/</code></p>
 <h3 id='request-body-2'>Request Body</h3>
 <table><thead>
@@ -572,7 +607,7 @@ To get <code>your_api_key_here</code>, contact <a href="https://www.goftino.com/
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates an order to buy a coin by specifying the desired quote amount.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://napi.zarpay24.com/api/v1/market/buy/</code></p>
 <h3 id='request-body-3'>Request Body</h3>
 <table><thead>
@@ -620,7 +655,7 @@ To get <code>your_api_key_here</code>, contact <a href="https://www.goftino.com/
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates an order to sell a coin by specifying the desired quote amount.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://napi.zarpay24.com/api/v1/market/sell/</code></p>
 <h3 id='request-body-4'>Request Body</h3>
 <table><thead>
@@ -671,7 +706,7 @@ To get <code>your_api_key_here</code>, contact <a href="https://www.goftino.com/
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a list of orders with pagination.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://napi.zarpay24.com/api/v1/market/orders/</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -722,9 +757,9 @@ To get <code>your_api_key_here</code>, contact <a href="https://www.goftino.com/
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves the details of a specific order using the <code>user_tracker</code> identifier.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://napi.zarpay24.com/api/v1/market/orders/by-tracker/&lt;user_tracker&gt;/</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
